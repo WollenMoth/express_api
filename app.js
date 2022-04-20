@@ -29,6 +29,15 @@ app.get("/v1/explorers/:id", (req, res) => {
   res.status(200).json(explorer);
 });
 
+app.post("/v1/explorers", (req, res) => {
+  console.log(`API Explorers POST request ${new Date()}`);
+
+  // Parámetros de un cliente
+  const requestBody = req.body;
+
+  res.status(201).json({ message: "Created" });
+});
+
 // Con esto inicializamos esta app
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
