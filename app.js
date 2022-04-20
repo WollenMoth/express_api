@@ -38,6 +38,16 @@ app.post("/v1/explorers", (req, res) => {
   res.status(201).json({ message: "Created" });
 });
 
+app.put("/v1/explorers/:id", (req, res) => {
+  console.log(`API Explorers PUT request ${new Date()}`);
+  console.log(`Updating explorer with id: ${req.params.id}`);
+
+  // Parámetros de un cliente
+  const requestBody = req.body;
+
+  res.status(200).json({ message: "Updated" });
+});
+
 // Con esto inicializamos esta app
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
