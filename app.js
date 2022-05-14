@@ -1,13 +1,8 @@
-// Usando objeto express
 const express = require("express");
-// App de express
 const app = express();
-// Indicamos que usaremos json
 app.use(express.json());
-// Puerto en que vamos a ver nuestra app: localhost:3000
 const port = 3000;
 
-// HTTP METHODS
 app.get("/v1/explorers", (req, res) => {
   console.log(`API Explorers GET ALL request ${new Date()}`);
 
@@ -32,7 +27,6 @@ app.get("/v1/explorers/:id", (req, res) => {
 app.post("/v1/explorers", (req, res) => {
   console.log(`API Explorers POST request ${new Date()}`);
 
-  // Parámetros de un cliente
   const requestBody = req.body;
 
   res.status(201).json({ message: "Created" });
@@ -42,7 +36,6 @@ app.put("/v1/explorers/:id", (req, res) => {
   console.log(`API Explorers PUT request ${new Date()}`);
   console.log(`Updating explorer with id: ${req.params.id}`);
 
-  // Parámetros de un cliente
   const requestBody = req.body;
 
   res.status(200).json({ message: "Updated" });
@@ -52,13 +45,11 @@ app.delete("/v1/explorers/:id", (req, res) => {
   console.log(`API Explorers DELETE request ${new Date()}`);
   console.log(`Deleting explorer with id: ${req.params.id}`);
 
-  // Parámetros de un cliente
   const requestBody = req.body;
 
   res.status(200).json({ message: "Deleted" });
 });
 
-// Con esto inicializamos esta app
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
 });
